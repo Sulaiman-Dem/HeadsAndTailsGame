@@ -1,3 +1,3 @@
 # Heads-Tails Game
 
-Simple heads and tails game. It will be improved as the weeks go by. 
+Simple heads and tails game. It will be improved as I get better at coding with C++.
