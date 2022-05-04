@@ -4,10 +4,9 @@
 
 ### User Interface =
 
-1. Show user what is program is about
-2. Start with showing whether they want to choose heads or tails
-3. Then they can choose whether they want to play again or not
-4. If not them present a good bye message
+1. Start with showing whether they want to choose heads or tails
+2. Then they can choose whether they want to play again or not
+3.
 
 ### Code Interface =
 
@@ -22,5 +21,12 @@
 
 1. Present what the program is mainly about
 2. Ask the user to choose between t for tails and h for heads
-3. Use checking function of cin
-4.
+3. Use checking function of cin else try again for user input
+4. Then use function of randomly choosing heads and tails
+5. After present user the if they won or lost the coin flip.
+
+### Improvements =
+
+1. Ask user if they want to choose a best of 3 or 5 to give more program functionality
+2. Add animations of coin flip and visually present a win or lost
+3.
