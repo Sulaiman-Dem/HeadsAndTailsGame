@@ -24,6 +24,7 @@
 3. Use checking function of cin else try again for user input
 4. Then use function of randomly choosing heads and tails
 5. After present user the if they won or lost the coin flip.
+6. Ask if they want to play again if yes loop steps 2 - 6 else present goodbye message
 
 ### Improvements =
 
