@@ -14,7 +14,7 @@ char getCpuOption()
 
     for (int index = 0; index < 3; index++)
     {
-        num = (rand() % 3) + 1;
+        num = (rand() % 2) + 1;
 
         if (num == 1)
             return 't';
@@ -103,7 +103,7 @@ int main()
     int i;
 
     cout << "                               ";
-    cout << "\nDo you wish to play again? (1 for yes or press any key for no): ";
+    cout << "\nDo you wish to play again? (1 for yes or enter any key for no): ";
     cin >> choice;
 
     for (i = 0; choice != 10000000; i++)
@@ -122,7 +122,7 @@ int main()
 
             seeWinner(userInput, cpuInput);
             cout << "                               ";
-            cout << "\nDo you wish to play again? (1 for yes or press any key for no): ";
+            cout << "\nDo you wish to play again? (1 for yes or enter any key for no): ";
             cin >> choice;
         }
         else
