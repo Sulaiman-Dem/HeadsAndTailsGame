@@ -26,8 +26,4 @@
 5. After present user the if they won or lost the coin flip.
 6. Ask if they want to play again if yes loop steps 2 - 6 else present goodbye message
 
-### Improvements =
-
-1. Ask user if they want to choose a best of 3 or 5 to give more program functionality
-2. Add animations of coin flip and visually present a win or lost
-3.
+### Issues =
