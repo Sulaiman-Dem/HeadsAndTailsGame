@@ -3,8 +3,8 @@
 #include <ctime>
 using namespace std;
 
-const char TAILS = 't';
-const char HEADS = 'h';
+constexpr char TAILS = 't';
+constexpr char HEADS = 'h';
 
 char getCpuOption()
 {
