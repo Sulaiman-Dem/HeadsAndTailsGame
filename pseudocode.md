@@ -30,3 +30,4 @@
 
 1. I had issues finding a way of making it so that CPU randomly choosing heads or tails
    Solution = I figured out modulus provides whole numbers as an outcome so if I make it so that h = 2 and t = 1. It will work but I needed help from online to get srand((unsigned)time(0)) since I had no idea at the time to implement modulus into this program. This function works with timing of opening program and choses a random number from that time of opening. Its not the most reliable but it works most of the time
+2. I had an issue where my while loop would only loop twice and it would automatically end after the second usage of the program if the user wanted to use the program again
