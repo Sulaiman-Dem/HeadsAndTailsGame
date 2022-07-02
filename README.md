@@ -1,3 +1,3 @@
 # Heads and Tails Game
 
-Simple heads and tails game. It will be improved as I get better at coding with C++.
+This is a simple heads and tails game that allows you to simulate a coin filp and it will determine the winner. 
