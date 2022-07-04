@@ -36,4 +36,4 @@
 3. I had an issue with the getUserInput function because it would duplicate the try again input multiple times
    Solution = I was missing std::cin.clear(); and std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'), which are two lines of code which clears the stored cin value the user provided and ignores new line characters
 4. After implementing these two lines of code a new problem happened when the user would input the incorrect option it would give the try again prompt. Then, the user inputs the correct input into the program, it still sees it as wrong. However, if the user were to input the correct input from the beginning it would read it as correct
-   Solution =
+   Solution = In the while loop there wasn't a cin command line to take in the userInput to evaluate if its correct or not 
