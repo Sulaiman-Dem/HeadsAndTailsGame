@@ -34,4 +34,4 @@
 2. I had an issue where my while loop would only loop twice and it would automatically end after the second usage of the program if the user wanted to use the program again
    Solution = I created the if statements within the while loop and now it loops continuously until the user is finished with program
 3. I had an issue with the getUserInput function because it would duplicate the try again input multiple times
-   Solution =
+   Solution = I was missing std::cin.clear(); and std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'), which are two lines of code which clears the stored cin value the user provided and ignores new line characters
