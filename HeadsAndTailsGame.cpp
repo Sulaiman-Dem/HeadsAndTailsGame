@@ -1,6 +1,5 @@
 #include <iostream>
-#include <limits>  // for  limits numeric_limits<streamsize>::max
-#include <iomanip> // for setw()
+#include <limits> // for  limits numeric_limits<streamsize>::max
 
 // A class for heads and tails game
 class headsAndTails
@@ -33,20 +32,28 @@ public:
     char getUserInput()
     {
         char userInput;
-        std::cout << "(t) for Tails" << std::endl
+        std::cout << "\n(t) for Tails" << std::endl
                   << "(h) for Heads" << std::endl;
         std::cout << "Input your choice: ";
-        // std::cin >> userInput;
-        // bug can't read other inputs and would dup the enter again message 5 times
+        std::cin >> userInput;
 
-        while (!(std::cin >> userInput) || (userInput != 't') && (userInput != 'h'))
+        if ((userInput == 't') && (userInput == 'h'))
         {
+            return userInput;
+        }
+
+        while ((userInput != 't') && (userInput != 'h'))
+        {
+
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cout << "\nYour input is uppercase(Only lowercase) or its invalid. Try again!" << std::endl;
             std::cout << "(t) for Tails" << std::endl
                       << "(h) for Heads" << std::endl;
             std::cout << "Input your choice: ";
             std::cin >> userInput;
         }
+
         return userInput;
     }
 
