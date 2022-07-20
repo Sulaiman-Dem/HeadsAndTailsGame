@@ -1,14 +1,11 @@
 #include <iostream>
 #include <limits> // for  limits numeric_limits<streamsize>::max
+#include <string>
 
 // A class for heads and tails game
 class headsAndTails
 {
 public:
-    // Global variables that are used within many functions
-    char TAILS = 't';
-    char HEADS = 'h';
-
     // This function allows the randomness of the coin flip to happen with srand and uses modulus to indicate t = 1 and h = 2
     char getCpuOption()
     {
@@ -29,25 +26,20 @@ public:
     }
 
     // This functions asks the user for their choice of heads and tails, which is indicated by "t" or "h"
-    char getUserInput()
+    std::string getUserInput()
     {
-        char userInput;
+        std::string userInput;
         std::cout << "\n(t) for Tails" << std::endl
                   << "(h) for Heads" << std::endl;
         std::cout << "Input your choice: ";
         std::cin >> userInput;
 
-        if ((userInput == 't') && (userInput == 'h'))
-        {
-            return userInput;
-        }
-
-        while ((userInput != 't') && (userInput != 'h'))
+        while ((userInput != "t") && (userInput != "h"))
         {
 
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "\nYour input is uppercase(Only lowercase) or its invalid. Try again!" << std::endl;
+            std::cout << "\nERROR: Please input only the provided options below!" << std::endl;
             std::cout << "(t) for Tails" << std::endl
                       << "(h) for Heads" << std::endl;
             std::cout << "Input your choice: ";
@@ -58,20 +50,28 @@ public:
     }
 
     // This function will determine the winner by comparing computer's choice and user's choice
-    void seeResult(const char userOption, const char cpuOption)
+    void seeResult(std::string userOption, char cpuOption)
     {
-        if ((userOption == 't' && cpuOption == 't') || (userOption == 'h' && cpuOption == 'h'))
+        if ((userOption == "t" && cpuOption == 't') || (userOption == "h" && cpuOption == 'h'))
         {
             std::cout << "\nYou Win!" << std::endl;
         }
-        if ((userOption == 'h' && cpuOption == 't') || (userOption == 't' && cpuOption == 'h'))
+        if ((userOption == "h" && cpuOption == 't') || (userOption == "t" && cpuOption == 'h'))
         {
             std::cout << "\nYou Lost!" << std::endl;
         }
     }
 
-    // This function allows for the user to see their picked option and the computer's pick option as well
-    void showSelectedOption(char option)
+    // This function allows for the user to see their picked option
+    void showSelectedOptionUser(std::string option)
+    {
+        if (option == "t")
+            std::cout << "Tails" << std::endl;
+        if (option == "h")
+            std::cout << "Heads" << std::endl;
+    }
+    // This function allows for the user to see the computer's pick option
+    void showSelectedOptionCPU(char option)
     {
         if (option == 't')
             std::cout << "Tails" << std::endl;
@@ -83,32 +83,34 @@ public:
 // This function will allow the program to continuously loop until the user is finished using it
 void userLoopDecision()
 {
-    int userDecision;
-    char userInput;
+    std::string userDecision;
+    std::string userInput;
     char cpuInput;
 
     class headsAndTails headsTails;
 
     std::cout << "\nDo you wish to play again? (1 for yes or 0 for no): ";
+    std::cin >> userDecision;
 
-    while (!(std::cin >> userDecision) || (userDecision > 1) || (userDecision < 0))
+    while ((userDecision != "1") && (userDecision != "0"))
     // User is forced to choose either 1 or 0
     {
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cout << "\nInvalid Input!";
         std::cout << "\nInput Choice here: ";
+        std::cin >> userDecision;
     }
 
-    if (userDecision == 1)
+    if (userDecision == "1")
     {
         userInput = headsTails.getUserInput(); // The variable userInput will get a value from the function getUserInput
         std::cout << "\nYour choice: ";
-        headsTails.showSelectedOption(userInput); // This will present the user their chosen option
+        headsTails.showSelectedOptionUser(userInput); // This will present the user their chosen option
 
         cpuInput = headsTails.getCpuOption(); // The variable cpuInput will get a value from the function getCpuOption
         std::cout << "Computer choice: ";
-        headsTails.showSelectedOption(cpuInput); // This will present the user the choice chosen by the computer
+        headsTails.showSelectedOptionCPU(cpuInput); // This will present the user the choice chosen by the computer
 
         headsTails.seeResult(userInput, cpuInput); // This will use both stored values within the variables to determine wether the user wins or loses
 
@@ -116,7 +118,7 @@ void userLoopDecision()
         userLoopDecision();
     }
     // This ends the program
-    if (userDecision == 0)
+    if (userDecision == "0")
     {
         std::cout << "\nThank you for Playing!";
         std::cout << "\n  Have a Great Day!";
@@ -126,7 +128,7 @@ void userLoopDecision()
 
 int main()
 {
-    char userInput;
+    std::string userInput;
     char cpuInput;
     int userDecision;
 
@@ -138,11 +140,11 @@ int main()
 
     userInput = headsTails.getUserInput(); // The variable userInput will get a value from the function getUserInput
     std::cout << "\nYour choice: ";
-    headsTails.showSelectedOption(userInput); // This will present the user their chosen option
+    headsTails.showSelectedOptionUser(userInput); // This will present the user their chosen option
 
     cpuInput = headsTails.getCpuOption(); // The variable cpuInput will get a value from the function getCpuOption
     std::cout << "Computer choice: ";
-    headsTails.showSelectedOption(cpuInput); // This will present the user the choice chosen by the computer
+    headsTails.showSelectedOptionCPU(cpuInput); // This will present the user the choice chosen by the computer
 
     headsTails.seeResult(userInput, cpuInput); // This will use both stored values within the variables to determine wether the user wins or loses
 
