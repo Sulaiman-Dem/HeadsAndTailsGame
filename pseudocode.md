@@ -1,4 +1,4 @@
-# Heads & Tails Game
+# Heads and Tails Game
 
 ## Pseudocode
 
